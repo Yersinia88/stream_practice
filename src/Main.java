@@ -74,8 +74,9 @@ public class Main {
     private static List<Map.Entry<String, List<Name>>> getPeopleWithTheSameSecondFirstNames(List<Name> listOfNames) {
         List<Map.Entry<String, List<Name>>> mapOfPeopleWithTheSameSecondFirstNames =
                 listOfNames.stream()
-                        .filter(name -> !name.getSecondFirstNameToString().equals(""))
-                        .collect(Collectors.groupingBy(Name::getSecondFirstNameToString))
+                        .filter(name -> name.getSecondFirstName() != null)
+                        .filter(name -> !name.getSecondFirstName().equals(""))
+                        .collect(Collectors.groupingBy(Name::getSecondFirstName))
                         .entrySet()
                         .stream()
                         .filter(entry -> entry.getValue().size() > 1).toList();
@@ -176,7 +177,7 @@ public class Main {
             while ((line = reader.readLine()) != null) {
                 names = line.split(" ");
                 if (names.length == 3) {
-                    listOfNames.add(new Name(names[0], names[1], Optional.ofNullable(names[2])));
+                    listOfNames.add(new Name(names[0], names[1], names[2]));
                 } else {
                     listOfNames.add(new Name(names[0], names[1]));
                 }

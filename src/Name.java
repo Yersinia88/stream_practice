@@ -3,12 +3,16 @@ import java.util.Optional;
 public class Name {
     private final String lastName;
     private final String firstName;
-    private Optional<String> secondFirstName;
+    private String secondFirstName;
 
-    public Name(String lastName, String firstName, Optional<String> secondFirstName) {
+    public Name(String lastName, String firstName, String secondFirstName) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.secondFirstName = secondFirstName;
+        if (secondFirstName != null) {
+            this.secondFirstName = secondFirstName;
+        } else {
+            this.secondFirstName = "";
+        }
     }
 
     public Name(String lastName, String firstName) {
@@ -24,24 +28,12 @@ public class Name {
         return firstName;
     }
 
-    public Optional<String> getSecondFirstName() {
+    public String getSecondFirstName() {
         return secondFirstName;
-    }
-
-
-    public String getSecondFirstNameToString() {
-        String tempSecondFirstname;
-        if (secondFirstName != null) {
-            return tempSecondFirstname = String.valueOf(secondFirstName);
-        } else {
-            return tempSecondFirstname = "";
-        }
     }
 
     @Override
     public String toString() {
-        String tempSecondFirstname = getSecondFirstNameToString();
-
-        return String.format("%s %s %s", lastName, firstName, tempSecondFirstname);
+        return String.format("%s %s %s", lastName, firstName, secondFirstName);
     }
 }
