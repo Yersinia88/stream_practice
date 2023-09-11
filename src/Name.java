@@ -1,5 +1,3 @@
-import java.util.Optional;
-
 public class Name {
     private final String lastName;
     private final String firstName;
@@ -11,7 +9,7 @@ public class Name {
         if (secondFirstName != null) {
             this.secondFirstName = secondFirstName;
         } else {
-            this.secondFirstName = "";
+            this.secondFirstName.equals("");
         }
     }
 
