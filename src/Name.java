@@ -6,10 +6,14 @@ public class Name {
     public Name(String lastName, String firstName, String secondFirstName) {
         this.lastName = lastName;
         this.firstName = firstName;
-        if (secondFirstName != null) {
-            this.secondFirstName = secondFirstName;
-        } else {
-            this.secondFirstName.equals("");
+        try{
+            if (secondFirstName != null) {
+                this.secondFirstName = secondFirstName;
+            } else {
+                this.secondFirstName.equals("");
+            }
+        }catch (NullPointerException e) {
+            System.out.println("NullPointerException Caught.");
         }
     }
 
