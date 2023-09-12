@@ -179,7 +179,7 @@ public class Main {
                 if (names.length == 3) {
                     listOfNames.add(new Name(names[0], names[1], names[2]));
                 } else {
-                    listOfNames.add(new Name(names[0], names[1],""));
+                    listOfNames.add(new Name(names[0], names[1]));
                 }
             }
         } catch (IOException e) {
