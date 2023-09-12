@@ -1,25 +1,12 @@
 public class Name {
     private final String lastName;
     private final String firstName;
-    private String secondFirstName;
+    private final String secondFirstName;
 
     public Name(String lastName, String firstName, String secondFirstName) {
         this.lastName = lastName;
         this.firstName = firstName;
-        try{
-            if (secondFirstName != null) {
-                this.secondFirstName = secondFirstName;
-            } else {
-                this.secondFirstName.equals("");
-            }
-        }catch (NullPointerException e) {
-            System.out.println("NullPointerException Caught.");
-        }
-    }
-
-    public Name(String lastName, String firstName) {
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.secondFirstName = secondFirstName;
     }
 
     public String getLastName() {
